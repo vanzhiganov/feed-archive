@@ -1,5 +1,9 @@
 # feed-archive
 
+## Database structure
+
+![Database Structure](database.png "Database Structure")
+
 ## Install Howto dev tools
 
 **Boost**
