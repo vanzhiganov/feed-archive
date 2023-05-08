@@ -24,3 +24,5 @@ services:
     tmpfs:
       - /tmp
       - /run
+volumes:
+  db_data: {}
