@@ -27,3 +27,7 @@ Install mysql-connector-c++ rpm package:
 ```shell
 dnf --enablerepo=mysql-connectors-communityinstall mysql-connector-c++
 ```
+
+## See also
+
+- https://modwsgi.readthedocs.io/en/develop/user-guides/quick-configuration-guide.html#mounting-the-wsgi-application
