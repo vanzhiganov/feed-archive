@@ -16,8 +16,6 @@ using namespace std;
 
 char const* get_latest(std::string feedId)
 try {
-  cout << feedId << endl;
-
   sql::Driver *driver;
   sql::Connection *con;
   // sql::Statement *stmt;
