@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+#include <boost/python.hpp>
 
 #include <mysql_driver.h>
 #include <mysql_connection.h>
@@ -13,8 +14,10 @@
 
 using namespace std;
 
-char const* get_latest(char const* feedId)
+char const* get_latest(std::string feedId)
 try {
+  cout << feedId << endl;
+
   sql::Driver *driver;
   sql::Connection *con;
   // sql::Statement *stmt;
@@ -31,8 +34,7 @@ try {
 
   // stmt = con->createStatement();
   // res = stmt->executeQuery("SELECT * from feeds where alias=?;");
-  // prpstmt = con->prepareStatement("select id, content FROM archive WHERE id IN (SELECT archive_id FROM `latest` WHERE feed_id IN (SELect id from feeds where alias = ?))  LIMIT 1;");
-  prpstmt = con->prepareStatement("select id, content FROM archive WHERE id IN (SELECT archive_id FROM `latest` WHERE feed_id IN (SELect id from feeds where id = ?))  LIMIT 1;");
+  prpstmt = con->prepareStatement("SELECT id, content FROM archive WHERE id IN (SELECT archive_id FROM `latest` WHERE feed_id IN (SELECT id FROM feeds WHERE alias = ?))  LIMIT 1;");
   prpstmt->setString(1, feedId);
   // prpstmt->set
   res = prpstmt->executeQuery();
