@@ -35,3 +35,4 @@
 *.py[cod]
 __pycache__/
 .vscode/
+*.bak
